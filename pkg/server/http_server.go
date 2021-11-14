@@ -151,7 +151,9 @@ func (h *HTTPServer) logger(handler http.Handler) http.HandlerFunc {
 	}
 }
 
-const banner = `<h1> TARS </h1>
+const banner = `<h1> TARS SNITCH</h1>
+
+This is a simple snitch.
 `
 
 // defaultHandler is a handler for default collaborator requests
