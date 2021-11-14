@@ -10,9 +10,9 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/lewerkun/interactsh/pkg/filewatcher"
 	"github.com/projectdiscovery/fileutil"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/interactsh/pkg/filewatcher"
 	"github.com/projectdiscovery/stringsutil"
 )
 

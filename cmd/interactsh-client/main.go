@@ -9,9 +9,9 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/lewerkun/interactsh/pkg/client"
+	"github.com/lewerkun/interactsh/pkg/server"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/interactsh/pkg/client"
-	"github.com/projectdiscovery/interactsh/pkg/server"
 )
 
 const banner = `

@@ -13,9 +13,9 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/lewerkun/interactsh/pkg/server/acme"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/gologger/levels"
-	"github.com/projectdiscovery/interactsh/pkg/server/acme"
 )
 
 // HTTPServer is a http server instance that listens both
@@ -153,7 +153,7 @@ func (h *HTTPServer) logger(handler http.Handler) http.HandlerFunc {
 
 const banner = `<h1> Interactsh Server </h1>
 
-<a href='https://github.com/projectdiscovery/interactsh'>Interactsh</a> is an <b>open-source solution</b> for out-of-band data extraction. It is a tool designed to detect bugs that cause external interactions. These bugs include, Blind SQLi, Blind CMDi, SSRF, etc. <br><br>
+<a href='https://github.com/lewerkun/interactsh'>Interactsh</a> is an <b>open-source solution</b> for out-of-band data extraction. It is a tool designed to detect bugs that cause external interactions. These bugs include, Blind SQLi, Blind CMDi, SSRF, etc. <br><br>
 
 If you find communications or exchanges with the <b>%s</b> server in your logs, it is possible that someone has been testing your applications.<br><br>
 
