@@ -193,7 +193,7 @@ func (s *Storage) AddInteractionWithId(id string, data []byte) error {
 
 // GetInteractions returns the interactions for a correlationID and removes
 // it from the storage. It also returns AES Encrypted Key for the IDs.
-func (s *Storage) GetInteractions(correlationID, secret string) ([]string, string, error) {
+func (s *Storage) GetInteractions(correlationID string) ([]string, string, error) {
 	item := s.cache.Get(correlationID)
 	if item == nil {
 		return nil, "", errors.New("could not get correlation-id from cache")
@@ -201,9 +201,6 @@ func (s *Storage) GetInteractions(correlationID, secret string) ([]string, strin
 	value, ok := item.Value().(*CorrelationData)
 	if !ok {
 		return nil, "", errors.New("invalid correlation-id cache value found")
-	}
-	if !strings.EqualFold(value.secretKey, secret) {
-		return nil, "", errors.New("invalid secret key passed for user")
 	}
 	data := value.GetInteractions()
 	return data, value.AESKey, nil
