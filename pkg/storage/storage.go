@@ -202,6 +202,7 @@ func (s *Storage) GetInteractions(correlationID string) ([]string, string, error
 	if !ok {
 		return nil, "", errors.New("invalid correlation-id cache value found")
 	}
+
 	data := value.GetInteractions()
 	return data, value.AESKey, nil
 }
