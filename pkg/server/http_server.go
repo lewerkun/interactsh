@@ -179,9 +179,9 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 // RegisterRequest is a request for client registration to interactsh server.
 type RegisterRequest struct {
 	// PublicKey is the public RSA Key of the client.
-	PublicKey string `json:"public-key"`
+	//PublicKey string `json:"public-key"`
 	// SecretKey is the secret-key for correlation ID registered for the client.
-	SecretKey string `json:"secret-key"`
+	//SecretKey string `json:"secret-key"`
 	// CorrelationID is an ID for correlation with requests.
 	CorrelationID string `json:"correlation-id"`
 }
@@ -194,11 +194,7 @@ func (h *HTTPServer) registerHandler(w http.ResponseWriter, req *http.Request) {
 		jsonError(w, fmt.Sprintf("could not decode json body: %s", err), http.StatusBadRequest)
 		return
 	}
-	if err := h.options.Storage.SetIDPublicKey(r.CorrelationID, r.SecretKey, r.PublicKey); err != nil {
-		gologger.Warning().Msgf("Could not set id and public key for %s: %s\n", r.CorrelationID, err)
-		jsonError(w, fmt.Sprintf("could not set id and public key: %s", err), http.StatusBadRequest)
-		return
-	}
+
 	jsonMsg(w, "registration successful", http.StatusOK)
 	gologger.Debug().Msgf("Registered correlationID %s for key\n", r.CorrelationID)
 }
